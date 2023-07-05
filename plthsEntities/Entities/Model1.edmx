@@ -1,0 +1,1059 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="plthsModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="accID" />
+          </Key>
+          <Property Name="accID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="username" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="password" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="acctype" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assests">
+          <Key>
+            <PropertyRef Name="assetID" />
+          </Key>
+          <Property Name="assetID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="residentBrgy" Type="varchar" MaxLength="50" />
+          <Property Name="votersBrgy" Type="varchar" MaxLength="50" />
+          <Property Name="specify" Type="varchar" MaxLength="50" />
+          <Property Name="typeHouse" Type="varchar" MaxLength="50" />
+          <Property Name="typeLand" Type="varchar" MaxLength="50" />
+          <Property Name="CR" Type="varchar" MaxLength="50" />
+          <Property Name="sourceLight" Type="varchar" MaxLength="50" />
+          <Property Name="typeCoocking" Type="varchar" MaxLength="50" />
+          <Property Name="sourceWater" Type="varchar" MaxLength="50" />
+          <Property Name="landVihicle" Type="varchar" MaxLength="50" />
+          <Property Name="seaVihicle" Type="varchar" MaxLength="50" />
+          <Property Name="appliances" Type="varchar" MaxLength="50" />
+          <Property Name="internetConnection" Type="varchar" MaxLength="50" />
+          <Property Name="others" Type="varchar" MaxLength="50" />
+          <Property Name="residentID" Type="int" />
+        </EntityType>
+        <EntityType Name="borrowed">
+          <Key>
+            <PropertyRef Name="borrowID" />
+          </Key>
+          <Property Name="borrowID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="borrower" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="itemid" Type="int" Nullable="false" />
+          <Property Name="num_borrowed" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="business_permit">
+          <Key>
+            <PropertyRef Name="permit_id" />
+          </Key>
+          <Property Name="permit_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="50" />
+          <Property Name="ResidentID" Type="int" />
+          <Property Name="business_name" Type="varchar" MaxLength="50" />
+          <Property Name="location" Type="varchar" MaxLength="50" />
+          <Property Name="issuedPlace_id" Type="int" Nullable="false" />
+          <Property Name="amount" Type="int" />
+          <Property Name="expiration" Type="date" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+          <Property Name="businessPermitStatus" Type="varchar" MaxLength="10" />
+        </EntityType>
+        <EntityType Name="Cedula">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="surname" Type="varchar" MaxLength="255" />
+          <Property Name="firstname" Type="varchar" MaxLength="255" />
+          <Property Name="lastname" Type="varchar" MaxLength="255" />
+          <Property Name="citizenship" Type="varchar" MaxLength="255" />
+          <Property Name="civil_status" Type="varchar" MaxLength="255" />
+          <Property Name="profession" Type="varchar" MaxLength="255" />
+          <Property Name="tax_identification_no" Type="int" />
+          <Property Name="birth_date" Type="date" />
+          <Property Name="r_height" Type="varchar" MaxLength="255" />
+          <Property Name="r_weight" Type="varchar" MaxLength="255" />
+          <Property Name="r_signature" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="Clearance">
+          <Key>
+            <PropertyRef Name="clearance_id" />
+          </Key>
+          <Property Name="clearance_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResidentID" Type="int" />
+          <Property Name="Issued" Type="varchar(max)" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="date" Type="date" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="farmID" />
+          </Key>
+          <Property Name="farmID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Hectares" Type="varchar" MaxLength="50" />
+          <Property Name="LandStatus" Type="varchar" MaxLength="50" />
+          <Property Name="TypeSharing" Type="varchar" MaxLength="50" />
+          <Property Name="TypeCrops" Type="varchar" MaxLength="50" />
+          <Property Name="residentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Fishing">
+          <Key>
+            <PropertyRef Name="fishID" />
+          </Key>
+          <Property Name="fishID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeFishing" Type="varchar" MaxLength="50" />
+          <Property Name="RegisterNo" Type="varchar" MaxLength="50" />
+          <Property Name="FishingStatus" Type="varchar" MaxLength="50" />
+          <Property Name="TypeSharing" Type="varchar" MaxLength="50" />
+          <Property Name="residentID" Type="int" />
+        </EntityType>
+        <EntityType Name="frmBlotterReport">
+          <Key>
+            <PropertyRef Name="BlotterNo" />
+          </Key>
+          <Property Name="BlotterNo" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IncidentLocation" Type="varchar(max)" />
+          <Property Name="IncidentType" Type="varchar" MaxLength="50" />
+          <Property Name="DTIncident" Type="varchar" MaxLength="50" />
+          <Property Name="DTReported" Type="varchar" MaxLength="50" />
+          <Property Name="IncidentNarrative" Type="varchar(max)" />
+          <Property Name="Complainant" Type="varchar" MaxLength="50" />
+          <Property Name="Complained_Resident" Type="varchar" MaxLength="50" />
+          <Property Name="StatusC" Type="varchar" MaxLength="50" />
+          <Property Name="NickNameC" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="Citizenshipc" Type="varchar" MaxLength="50" />
+          <Property Name="GenderC" Type="varchar" MaxLength="50" />
+          <Property Name="AgeC" Type="int" />
+          <Property Name="MobileC" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdressC" Type="varchar" MaxLength="250" />
+          <Property Name="NickNameP" Type="varchar" MaxLength="50" />
+          <Property Name="CitizenshipP" Type="varchar" MaxLength="50" />
+          <Property Name="GenderP" Type="varchar" MaxLength="50" />
+          <Property Name="AgeP" Type="int" />
+          <Property Name="MobileP" Type="nvarchar" MaxLength="50" />
+          <Property Name="AdressP" Type="varchar" MaxLength="250" />
+          <Property Name="Office_in_Charge" Type="varchar" MaxLength="50" />
+          <Property Name="Purok" Type="int" />
+          <Property Name="DOB_C" Type="date" />
+          <Property Name="DOB_CR" Type="date" />
+          <Property Name="Purok_C" Type="varchar" MaxLength="50" />
+          <Property Name="C_fname" Type="varchar" MaxLength="20" />
+          <Property Name="C_mname" Type="varchar" MaxLength="50" />
+          <Property Name="C_lname" Type="varchar" MaxLength="50" />
+          <Property Name="P_fname" Type="varchar" MaxLength="50" />
+          <Property Name="P_mname" Type="varchar" MaxLength="50" />
+          <Property Name="P_lname" Type="varchar" MaxLength="50" />
+          <Property Name="Signature_1" Type="varchar(max)" />
+          <Property Name="Signature_2" Type="varchar(max)" />
+          <Property Name="blotterStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="signed" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="HouseholdMember">
+          <Key>
+            <PropertyRef Name="h_m_id" />
+          </Key>
+          <Property Name="h_m_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResidentID" Type="int" Nullable="false" />
+          <Property Name="LeaderID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indigency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ResidentID" Type="int" />
+          <Property Name="Purpose" Type="varchar" MaxLength="30" />
+          <Property Name="amount" Type="int" />
+          <Property Name="Issuance" Type="varchar(max)" />
+          <Property Name="date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="itemID" />
+          </Key>
+          <Property Name="itemID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="itemName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="quantity" Type="int" Nullable="false" />
+          <Property Name="itemStatus" Type="text" />
+          <Property Name="borrowed_quan" Type="int" />
+        </EntityType>
+        <EntityType Name="Issued_place">
+          <Key>
+            <PropertyRef Name="issuedPlace_id" />
+          </Key>
+          <Property Name="issuedPlace_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="place_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="LiveStock">
+          <Key>
+            <PropertyRef Name="liveStockID" />
+          </Key>
+          <Property Name="liveStockID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Species" Type="varchar" MaxLength="50" />
+          <Property Name="Number" Type="varchar" MaxLength="50" />
+          <Property Name="residentID" Type="int" />
+        </EntityType>
+        <EntityType Name="Missing">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Firstname" Type="varchar" MaxLength="30" />
+          <Property Name="Middlename" Type="varchar" MaxLength="30" />
+          <Property Name="Lastname" Type="varchar" MaxLength="30" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Gender" Type="varchar" MaxLength="10" />
+          <Property Name="Adress" Type="varchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="DateMissing" Type="date" />
+          <Property Name="DateFound" Type="nvarchar" MaxLength="50" />
+          <Property Name="Status" Type="varchar" MaxLength="30" />
+          <Property Name="Image" Type="varchar(max)" />
+          <Property Name="Reported" Type="varchar" MaxLength="30" />
+          <Property Name="Contact_num" Type="nvarchar" MaxLength="50" />
+          <Property Name="ResidentID" Type="int" />
+        </EntityType>
+        <EntityType Name="officials">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" />
+          <Property Name="position" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="date" Type="date" Nullable="false" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purok">
+          <Key>
+            <PropertyRef Name="Purok_Id" />
+          </Key>
+          <Property Name="Purok_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Purok_Nane" Type="varchar" MaxLength="50" />
+          <Property Name="Purok_Leader" Type="varchar" MaxLength="50" />
+          <Property Name="Contact" Type="nvarchar" MaxLength="50" />
+          <Property Name="pstatus" Type="varchar" MaxLength="10" />
+          <Property Name="PurokLeaderID" Type="int" />
+        </EntityType>
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="request_id" />
+          </Key>
+          <Property Name="request_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="service_id" Type="int" Nullable="false" />
+          <Property Name="res_id" Type="int" />
+          <Property Name="name" Type="varchar(max)" />
+          <Property Name="isResident" Type="text" Nullable="false" />
+          <Property Name="dateCreated" Type="date" Nullable="false" />
+          <Property Name="printed" Type="text" Nullable="false" />
+          <Property Name="datePrinted" Type="date" />
+          <Property Name="amount" Type="decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="payment_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Residents">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Lastname" Type="varchar" MaxLength="50" />
+          <Property Name="Firstname" Type="varchar" MaxLength="50" />
+          <Property Name="Middlename" Type="varchar" MaxLength="50" />
+          <Property Name="Gender" Type="varchar" MaxLength="50" />
+          <Property Name="Age" Type="int" />
+          <Property Name="Mobile" Type="nvarchar" MaxLength="50" />
+          <Property Name="Email" Type="varchar" MaxLength="250" />
+          <Property Name="Birthdate" Type="date" />
+          <Property Name="Religion" Type="varchar" MaxLength="50" />
+          <Property Name="Citizenship" Type="varchar" MaxLength="50" />
+          <Property Name="PurokID" Type="int" />
+          <Property Name="Adress" Type="varchar" MaxLength="250" />
+          <Property Name="Profession" Type="varchar" MaxLength="50" />
+          <Property Name="Dialect" Type="varchar" MaxLength="50" />
+          <Property Name="civil_status" Type="varchar" MaxLength="50" />
+          <Property Name="status" Type="varchar" MaxLength="50" />
+          <Property Name="filename" Type="varchar(max)" />
+          <Property Name="Voter_id" Type="nvarchar" MaxLength="50" />
+          <Property Name="Precint_No" Type="nvarchar" MaxLength="50" />
+          <Property Name="e_attainment" Type="varchar" MaxLength="50" />
+          <Property Name="fullname" Type="varchar" MaxLength="50" />
+          <Property Name="dataStatus" Type="varchar" MaxLength="10" Nullable="false" />
+          <Property Name="picture" Type="varchar" MaxLength="30" />
+          <Property Name="typeofEmployer" Type="varchar" MaxLength="50" />
+          <Property Name="monthlyIncome" Type="varchar" MaxLength="50" />
+          <Property Name="otherIncome" Type="varchar" MaxLength="50" />
+          <Property Name="philhealth" Type="varchar" MaxLength="50" />
+          <Property Name="personType" Type="varchar" MaxLength="50" />
+          <Property Name="typeNo" Type="varchar" MaxLength="50" />
+          <Property Name="typedateIssued" Type="varchar" MaxLength="50" />
+          <Property Name="supportNeed" Type="varchar" MaxLength="50" />
+          <Property Name="typeofPension" Type="varchar" MaxLength="50" />
+          <Property Name="soloParentNo" Type="varchar" MaxLength="50" />
+          <Property Name="BloodType" Type="varchar" MaxLength="50" />
+          <Property Name="Occupation" Type="varchar" MaxLength="50" />
+          <Property Name="WorkType" Type="varchar" MaxLength="50" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="midName" Type="varchar" MaxLength="50" />
+          <Property Name="Lname" Type="varchar" MaxLength="50" />
+          <Property Name="dateB" Type="date" />
+          <Property Name="sex" Type="varchar" MaxLength="50" />
+          <Property Name="CivilStatus" Type="varchar" MaxLength="50" />
+          <Property Name="BloodT" Type="varchar" MaxLength="50" />
+          <Property Name="Eattainment" Type="varchar" MaxLength="50" />
+          <Property Name="Coursetwo" Type="varchar" MaxLength="50" />
+          <Property Name="Occupationtwo" Type="varchar" MaxLength="50" />
+          <Property Name="WorkTypetwo" Type="varchar" MaxLength="50" />
+          <Property Name="Typeemployertwo" Type="varchar" MaxLength="50" />
+          <Property Name="MIncome" Type="varchar" MaxLength="50" />
+          <Property Name="Skills" Type="varchar" MaxLength="50" />
+          <Property Name="Osi" Type="varchar" MaxLength="50" />
+          <Property Name="fourps" Type="varchar" MaxLength="50" />
+          <Property Name="combineIncome" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="servicename" Type="varchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="plthsModelStoreContainer">
+          <EntitySet Name="account" EntityType="Self.account" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Assests" EntityType="Self.Assests" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="borrowed" EntityType="Self.borrowed" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="business_permit" EntityType="Self.business_permit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cedula" EntityType="Self.Cedula" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Clearance" EntityType="Self.Clearance" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Farm" EntityType="Self.Farm" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Fishing" EntityType="Self.Fishing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="frmBlotterReport" EntityType="Self.frmBlotterReport" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="HouseholdMember" EntityType="Self.HouseholdMember" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Indigency" EntityType="Self.Indigency" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="inventory" EntityType="Self.inventory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Issued_place" EntityType="Self.Issued_place" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="LiveStock" EntityType="Self.LiveStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Missing" EntityType="Self.Missing" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="officials" EntityType="Self.officials" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="payment" EntityType="Self.payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Purok" EntityType="Self.Purok" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="request" EntityType="Self.request" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Residents" EntityType="Self.Residents" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="service" EntityType="Self.service" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="plthsModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="account">
+          <Key>
+            <PropertyRef Name="accID" />
+          </Key>
+          <Property Name="accID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="username" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="password" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="acctype" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Assest">
+          <Key>
+            <PropertyRef Name="assetID" />
+          </Key>
+          <Property Name="assetID" Type="Int32" Nullable="false" />
+          <Property Name="residentBrgy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="votersBrgy" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="specify" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeHouse" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeLand" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CR" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sourceLight" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeCoocking" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sourceWater" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="landVihicle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="seaVihicle" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="appliances" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="internetConnection" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="others" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="borrowed">
+          <Key>
+            <PropertyRef Name="borrowID" />
+          </Key>
+          <Property Name="borrowID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="borrower" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="itemid" Type="Int32" Nullable="false" />
+          <Property Name="num_borrowed" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="business_permit">
+          <Key>
+            <PropertyRef Name="permit_id" />
+          </Key>
+          <Property Name="permit_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ResidentID" Type="Int32" />
+          <Property Name="business_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="location" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="issuedPlace_id" Type="Int32" Nullable="false" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="expiration" Type="DateTime" Precision="0" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="businessPermitStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Cedula">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="surname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="firstname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="lastname" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="citizenship" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="civil_status" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="profession" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="tax_identification_no" Type="Int32" />
+          <Property Name="birth_date" Type="DateTime" Precision="0" />
+          <Property Name="r_height" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="r_weight" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="r_signature" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="Clearance">
+          <Key>
+            <PropertyRef Name="clearance_id" />
+          </Key>
+          <Property Name="clearance_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResidentID" Type="Int32" />
+          <Property Name="Issued" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="DateTime" Precision="0" />
+        </EntityType>
+        <EntityType Name="Farm">
+          <Key>
+            <PropertyRef Name="farmID" />
+          </Key>
+          <Property Name="farmID" Type="Int32" Nullable="false" />
+          <Property Name="Hectares" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LandStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeSharing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeCrops" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Fishing">
+          <Key>
+            <PropertyRef Name="fishID" />
+          </Key>
+          <Property Name="fishID" Type="Int32" Nullable="false" />
+          <Property Name="TypeFishing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="RegisterNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="FishingStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="TypeSharing" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="frmBlotterReport">
+          <Key>
+            <PropertyRef Name="BlotterNo" />
+          </Key>
+          <Property Name="BlotterNo" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IncidentLocation" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="IncidentType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DTIncident" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="DTReported" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="IncidentNarrative" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Complainant" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Complained_Resident" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="StatusC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="NickNameC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="Citizenshipc" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenderC" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AgeC" Type="Int32" />
+          <Property Name="MobileC" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdressC" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="NickNameP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CitizenshipP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="GenderP" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="AgeP" Type="Int32" />
+          <Property Name="MobileP" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="AdressP" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Office_in_Charge" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Purok" Type="Int32" />
+          <Property Name="DOB_C" Type="DateTime" Precision="0" />
+          <Property Name="DOB_CR" Type="DateTime" Precision="0" />
+          <Property Name="Purok_C" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_fname" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="C_mname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="C_lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_fname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_mname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="P_lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Signature_1" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Signature_2" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="blotterStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="signed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="HouseholdMember">
+          <Key>
+            <PropertyRef Name="h_m_id" />
+          </Key>
+          <Property Name="h_m_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResidentID" Type="Int32" Nullable="false" />
+          <Property Name="LeaderID" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Indigency">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ResidentID" Type="Int32" />
+          <Property Name="Purpose" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="amount" Type="Int32" />
+          <Property Name="Issuance" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="inventory">
+          <Key>
+            <PropertyRef Name="itemID" />
+          </Key>
+          <Property Name="itemID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="itemName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="quantity" Type="Int32" Nullable="false" />
+          <Property Name="itemStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="borrowed_quan" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Issued_place">
+          <Key>
+            <PropertyRef Name="issuedPlace_id" />
+          </Key>
+          <Property Name="issuedPlace_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="place_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="LiveStock">
+          <Key>
+            <PropertyRef Name="liveStockID" />
+          </Key>
+          <Property Name="liveStockID" Type="Int32" Nullable="false" />
+          <Property Name="Species" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Number" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="residentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Missing">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Firstname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Middlename" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Lastname" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="Adress" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="DateMissing" Type="DateTime" Precision="0" />
+          <Property Name="DateFound" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Status" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Image" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Reported" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="Contact_num" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="ResidentID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="official">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="position" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="payment">
+          <Key>
+            <PropertyRef Name="payment_id" />
+          </Key>
+          <Property Name="payment_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="date" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Purok">
+          <Key>
+            <PropertyRef Name="Purok_Id" />
+          </Key>
+          <Property Name="Purok_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Purok_Nane" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Purok_Leader" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Contact" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="pstatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="PurokLeaderID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="request">
+          <Key>
+            <PropertyRef Name="request_id" />
+          </Key>
+          <Property Name="request_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="service_id" Type="Int32" Nullable="false" />
+          <Property Name="res_id" Type="Int32" />
+          <Property Name="name" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="isResident" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="dateCreated" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="printed" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="datePrinted" Type="DateTime" Precision="0" />
+          <Property Name="amount" Type="Decimal" Precision="18" Scale="2" Nullable="false" />
+          <Property Name="payment_id" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Resident">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Lastname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Firstname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Middlename" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Age" Type="Int32" />
+          <Property Name="Mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Email" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Birthdate" Type="DateTime" Precision="0" />
+          <Property Name="Religion" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Citizenship" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="PurokID" Type="Int32" />
+          <Property Name="Adress" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="Profession" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Dialect" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="civil_status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="status" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="filename" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+          <Property Name="Voter_id" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Precint_No" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="e_attainment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fullname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dataStatus" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="picture" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="typeofEmployer" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="monthlyIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="otherIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="philhealth" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="personType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typedateIssued" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="supportNeed" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="typeofPension" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="soloParentNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BloodType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Occupation" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkType" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="midName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Lname" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="dateB" Type="DateTime" Precision="0" />
+          <Property Name="sex" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CivilStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="BloodT" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Eattainment" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Coursetwo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Occupationtwo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="WorkTypetwo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Typeemployertwo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Skills" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Osi" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="fourps" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="combineIncome" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="service">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="servicename" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="plthsEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="accounts" EntityType="Self.account" />
+          <EntitySet Name="Assests" EntityType="Self.Assest" />
+          <EntitySet Name="borroweds" EntityType="Self.borrowed" />
+          <EntitySet Name="business_permit" EntityType="Self.business_permit" />
+          <EntitySet Name="Cedulas" EntityType="Self.Cedula" />
+          <EntitySet Name="Clearances" EntityType="Self.Clearance" />
+          <EntitySet Name="Farms" EntityType="Self.Farm" />
+          <EntitySet Name="Fishings" EntityType="Self.Fishing" />
+          <EntitySet Name="frmBlotterReports" EntityType="Self.frmBlotterReport" />
+          <EntitySet Name="HouseholdMembers" EntityType="Self.HouseholdMember" />
+          <EntitySet Name="Indigencies" EntityType="Self.Indigency" />
+          <EntitySet Name="inventories" EntityType="Self.inventory" />
+          <EntitySet Name="Issued_place" EntityType="Self.Issued_place" />
+          <EntitySet Name="LiveStocks" EntityType="Self.LiveStock" />
+          <EntitySet Name="Missings" EntityType="Self.Missing" />
+          <EntitySet Name="officials" EntityType="Self.official" />
+          <EntitySet Name="payments" EntityType="Self.payment" />
+          <EntitySet Name="Puroks" EntityType="Self.Purok" />
+          <EntitySet Name="requests" EntityType="Self.request" />
+          <EntitySet Name="Residents" EntityType="Self.Resident" />
+          <EntitySet Name="services" EntityType="Self.service" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="plthsModelStoreContainer" CdmEntityContainer="plthsEntities">
+          <EntitySetMapping Name="accounts">
+            <EntityTypeMapping TypeName="plthsModel.account">
+              <MappingFragment StoreEntitySet="account">
+                <ScalarProperty Name="accID" ColumnName="accID" />
+                <ScalarProperty Name="username" ColumnName="username" />
+                <ScalarProperty Name="password" ColumnName="password" />
+                <ScalarProperty Name="acctype" ColumnName="acctype" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Assests">
+            <EntityTypeMapping TypeName="plthsModel.Assest">
+              <MappingFragment StoreEntitySet="Assests">
+                <ScalarProperty Name="assetID" ColumnName="assetID" />
+                <ScalarProperty Name="residentBrgy" ColumnName="residentBrgy" />
+                <ScalarProperty Name="votersBrgy" ColumnName="votersBrgy" />
+                <ScalarProperty Name="specify" ColumnName="specify" />
+                <ScalarProperty Name="typeHouse" ColumnName="typeHouse" />
+                <ScalarProperty Name="typeLand" ColumnName="typeLand" />
+                <ScalarProperty Name="CR" ColumnName="CR" />
+                <ScalarProperty Name="sourceLight" ColumnName="sourceLight" />
+                <ScalarProperty Name="typeCoocking" ColumnName="typeCoocking" />
+                <ScalarProperty Name="sourceWater" ColumnName="sourceWater" />
+                <ScalarProperty Name="landVihicle" ColumnName="landVihicle" />
+                <ScalarProperty Name="seaVihicle" ColumnName="seaVihicle" />
+                <ScalarProperty Name="appliances" ColumnName="appliances" />
+                <ScalarProperty Name="internetConnection" ColumnName="internetConnection" />
+                <ScalarProperty Name="others" ColumnName="others" />
+                <ScalarProperty Name="residentID" ColumnName="residentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="borroweds">
+            <EntityTypeMapping TypeName="plthsModel.borrowed">
+              <MappingFragment StoreEntitySet="borrowed">
+                <ScalarProperty Name="borrowID" ColumnName="borrowID" />
+                <ScalarProperty Name="borrower" ColumnName="borrower" />
+                <ScalarProperty Name="itemid" ColumnName="itemid" />
+                <ScalarProperty Name="num_borrowed" ColumnName="num_borrowed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="business_permit">
+            <EntityTypeMapping TypeName="plthsModel.business_permit">
+              <MappingFragment StoreEntitySet="business_permit">
+                <ScalarProperty Name="permit_id" ColumnName="permit_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="ResidentID" ColumnName="ResidentID" />
+                <ScalarProperty Name="business_name" ColumnName="business_name" />
+                <ScalarProperty Name="location" ColumnName="location" />
+                <ScalarProperty Name="issuedPlace_id" ColumnName="issuedPlace_id" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="expiration" ColumnName="expiration" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="businessPermitStatus" ColumnName="businessPermitStatus" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cedulas">
+            <EntityTypeMapping TypeName="plthsModel.Cedula">
+              <MappingFragment StoreEntitySet="Cedula">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="surname" ColumnName="surname" />
+                <ScalarProperty Name="firstname" ColumnName="firstname" />
+                <ScalarProperty Name="lastname" ColumnName="lastname" />
+                <ScalarProperty Name="citizenship" ColumnName="citizenship" />
+                <ScalarProperty Name="civil_status" ColumnName="civil_status" />
+                <ScalarProperty Name="profession" ColumnName="profession" />
+                <ScalarProperty Name="tax_identification_no" ColumnName="tax_identification_no" />
+                <ScalarProperty Name="birth_date" ColumnName="birth_date" />
+                <ScalarProperty Name="r_height" ColumnName="r_height" />
+                <ScalarProperty Name="r_weight" ColumnName="r_weight" />
+                <ScalarProperty Name="r_signature" ColumnName="r_signature" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Clearances">
+            <EntityTypeMapping TypeName="plthsModel.Clearance">
+              <MappingFragment StoreEntitySet="Clearance">
+                <ScalarProperty Name="clearance_id" ColumnName="clearance_id" />
+                <ScalarProperty Name="ResidentID" ColumnName="ResidentID" />
+                <ScalarProperty Name="Issued" ColumnName="Issued" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Farms">
+            <EntityTypeMapping TypeName="plthsModel.Farm">
+              <MappingFragment StoreEntitySet="Farm">
+                <ScalarProperty Name="farmID" ColumnName="farmID" />
+                <ScalarProperty Name="Hectares" ColumnName="Hectares" />
+                <ScalarProperty Name="LandStatus" ColumnName="LandStatus" />
+                <ScalarProperty Name="TypeSharing" ColumnName="TypeSharing" />
+                <ScalarProperty Name="TypeCrops" ColumnName="TypeCrops" />
+                <ScalarProperty Name="residentID" ColumnName="residentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Fishings">
+            <EntityTypeMapping TypeName="plthsModel.Fishing">
+              <MappingFragment StoreEntitySet="Fishing">
+                <ScalarProperty Name="fishID" ColumnName="fishID" />
+                <ScalarProperty Name="TypeFishing" ColumnName="TypeFishing" />
+                <ScalarProperty Name="RegisterNo" ColumnName="RegisterNo" />
+                <ScalarProperty Name="FishingStatus" ColumnName="FishingStatus" />
+                <ScalarProperty Name="TypeSharing" ColumnName="TypeSharing" />
+                <ScalarProperty Name="residentID" ColumnName="residentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="frmBlotterReports">
+            <EntityTypeMapping TypeName="plthsModel.frmBlotterReport">
+              <MappingFragment StoreEntitySet="frmBlotterReport">
+                <ScalarProperty Name="BlotterNo" ColumnName="BlotterNo" />
+                <ScalarProperty Name="IncidentLocation" ColumnName="IncidentLocation" />
+                <ScalarProperty Name="IncidentType" ColumnName="IncidentType" />
+                <ScalarProperty Name="DTIncident" ColumnName="DTIncident" />
+                <ScalarProperty Name="DTReported" ColumnName="DTReported" />
+                <ScalarProperty Name="IncidentNarrative" ColumnName="IncidentNarrative" />
+                <ScalarProperty Name="Complainant" ColumnName="Complainant" />
+                <ScalarProperty Name="Complained_Resident" ColumnName="Complained_Resident" />
+                <ScalarProperty Name="StatusC" ColumnName="StatusC" />
+                <ScalarProperty Name="NickNameC" ColumnName="NickNameC" />
+                <ScalarProperty Name="Citizenshipc" ColumnName="Citizenshipc" />
+                <ScalarProperty Name="GenderC" ColumnName="GenderC" />
+                <ScalarProperty Name="AgeC" ColumnName="AgeC" />
+                <ScalarProperty Name="MobileC" ColumnName="MobileC" />
+                <ScalarProperty Name="AdressC" ColumnName="AdressC" />
+                <ScalarProperty Name="NickNameP" ColumnName="NickNameP" />
+                <ScalarProperty Name="CitizenshipP" ColumnName="CitizenshipP" />
+                <ScalarProperty Name="GenderP" ColumnName="GenderP" />
+                <ScalarProperty Name="AgeP" ColumnName="AgeP" />
+                <ScalarProperty Name="MobileP" ColumnName="MobileP" />
+                <ScalarProperty Name="AdressP" ColumnName="AdressP" />
+                <ScalarProperty Name="Office_in_Charge" ColumnName="Office_in_Charge" />
+                <ScalarProperty Name="Purok" ColumnName="Purok" />
+                <ScalarProperty Name="DOB_C" ColumnName="DOB_C" />
+                <ScalarProperty Name="DOB_CR" ColumnName="DOB_CR" />
+                <ScalarProperty Name="Purok_C" ColumnName="Purok_C" />
+                <ScalarProperty Name="C_fname" ColumnName="C_fname" />
+                <ScalarProperty Name="C_mname" ColumnName="C_mname" />
+                <ScalarProperty Name="C_lname" ColumnName="C_lname" />
+                <ScalarProperty Name="P_fname" ColumnName="P_fname" />
+                <ScalarProperty Name="P_mname" ColumnName="P_mname" />
+                <ScalarProperty Name="P_lname" ColumnName="P_lname" />
+                <ScalarProperty Name="Signature_1" ColumnName="Signature_1" />
+                <ScalarProperty Name="Signature_2" ColumnName="Signature_2" />
+                <ScalarProperty Name="blotterStatus" ColumnName="blotterStatus" />
+                <ScalarProperty Name="signed" ColumnName="signed" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="HouseholdMembers">
+            <EntityTypeMapping TypeName="plthsModel.HouseholdMember">
+              <MappingFragment StoreEntitySet="HouseholdMember">
+                <ScalarProperty Name="h_m_id" ColumnName="h_m_id" />
+                <ScalarProperty Name="ResidentID" ColumnName="ResidentID" />
+                <ScalarProperty Name="LeaderID" ColumnName="LeaderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Indigencies">
+            <EntityTypeMapping TypeName="plthsModel.Indigency">
+              <MappingFragment StoreEntitySet="Indigency">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ResidentID" ColumnName="ResidentID" />
+                <ScalarProperty Name="Purpose" ColumnName="Purpose" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="Issuance" ColumnName="Issuance" />
+                <ScalarProperty Name="date" ColumnName="date" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="inventories">
+            <EntityTypeMapping TypeName="plthsModel.inventory">
+              <MappingFragment StoreEntitySet="inventory">
+                <ScalarProperty Name="itemID" ColumnName="itemID" />
+                <ScalarProperty Name="itemName" ColumnName="itemName" />
+                <ScalarProperty Name="quantity" ColumnName="quantity" />
+                <ScalarProperty Name="itemStatus" ColumnName="itemStatus" />
+                <ScalarProperty Name="borrowed_quan" ColumnName="borrowed_quan" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Issued_place">
+            <EntityTypeMapping TypeName="plthsModel.Issued_place">
+              <MappingFragment StoreEntitySet="Issued_place">
+                <ScalarProperty Name="issuedPlace_id" ColumnName="issuedPlace_id" />
+                <ScalarProperty Name="place_name" ColumnName="place_name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="LiveStocks">
+            <EntityTypeMapping TypeName="plthsModel.LiveStock">
+              <MappingFragment StoreEntitySet="LiveStock">
+                <ScalarProperty Name="liveStockID" ColumnName="liveStockID" />
+                <ScalarProperty Name="Species" ColumnName="Species" />
+                <ScalarProperty Name="Number" ColumnName="Number" />
+                <ScalarProperty Name="residentID" ColumnName="residentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Missings">
+            <EntityTypeMapping TypeName="plthsModel.Missing">
+              <MappingFragment StoreEntitySet="Missing">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="DateMissing" ColumnName="DateMissing" />
+                <ScalarProperty Name="DateFound" ColumnName="DateFound" />
+                <ScalarProperty Name="Status" ColumnName="Status" />
+                <ScalarProperty Name="Image" ColumnName="Image" />
+                <ScalarProperty Name="Reported" ColumnName="Reported" />
+                <ScalarProperty Name="Contact_num" ColumnName="Contact_num" />
+                <ScalarProperty Name="ResidentID" ColumnName="ResidentID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="officials">
+            <EntityTypeMapping TypeName="plthsModel.official">
+              <MappingFragment StoreEntitySet="officials">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="position" ColumnName="position" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="payments">
+            <EntityTypeMapping TypeName="plthsModel.payment">
+              <MappingFragment StoreEntitySet="payment">
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Puroks">
+            <EntityTypeMapping TypeName="plthsModel.Purok">
+              <MappingFragment StoreEntitySet="Purok">
+                <ScalarProperty Name="Purok_Id" ColumnName="Purok_Id" />
+                <ScalarProperty Name="Purok_Nane" ColumnName="Purok_Nane" />
+                <ScalarProperty Name="Purok_Leader" ColumnName="Purok_Leader" />
+                <ScalarProperty Name="Contact" ColumnName="Contact" />
+                <ScalarProperty Name="pstatus" ColumnName="pstatus" />
+                <ScalarProperty Name="PurokLeaderID" ColumnName="PurokLeaderID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="requests">
+            <EntityTypeMapping TypeName="plthsModel.request">
+              <MappingFragment StoreEntitySet="request">
+                <ScalarProperty Name="request_id" ColumnName="request_id" />
+                <ScalarProperty Name="service_id" ColumnName="service_id" />
+                <ScalarProperty Name="res_id" ColumnName="res_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="isResident" ColumnName="isResident" />
+                <ScalarProperty Name="dateCreated" ColumnName="dateCreated" />
+                <ScalarProperty Name="printed" ColumnName="printed" />
+                <ScalarProperty Name="datePrinted" ColumnName="datePrinted" />
+                <ScalarProperty Name="amount" ColumnName="amount" />
+                <ScalarProperty Name="payment_id" ColumnName="payment_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Residents">
+            <EntityTypeMapping TypeName="plthsModel.Resident">
+              <MappingFragment StoreEntitySet="Residents">
+                <ScalarProperty Name="combineIncome" ColumnName="combineIncome" />
+                <ScalarProperty Name="fourps" ColumnName="fourps" />
+                <ScalarProperty Name="Osi" ColumnName="Osi" />
+                <ScalarProperty Name="Skills" ColumnName="Skills" />
+                <ScalarProperty Name="MIncome" ColumnName="MIncome" />
+                <ScalarProperty Name="Typeemployertwo" ColumnName="Typeemployertwo" />
+                <ScalarProperty Name="WorkTypetwo" ColumnName="WorkTypetwo" />
+                <ScalarProperty Name="Occupationtwo" ColumnName="Occupationtwo" />
+                <ScalarProperty Name="Coursetwo" ColumnName="Coursetwo" />
+                <ScalarProperty Name="Eattainment" ColumnName="Eattainment" />
+                <ScalarProperty Name="BloodT" ColumnName="BloodT" />
+                <ScalarProperty Name="CivilStatus" ColumnName="CivilStatus" />
+                <ScalarProperty Name="sex" ColumnName="sex" />
+                <ScalarProperty Name="dateB" ColumnName="dateB" />
+                <ScalarProperty Name="Lname" ColumnName="Lname" />
+                <ScalarProperty Name="midName" ColumnName="midName" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="WorkType" ColumnName="WorkType" />
+                <ScalarProperty Name="Occupation" ColumnName="Occupation" />
+                <ScalarProperty Name="BloodType" ColumnName="BloodType" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Lastname" ColumnName="Lastname" />
+                <ScalarProperty Name="Firstname" ColumnName="Firstname" />
+                <ScalarProperty Name="Middlename" ColumnName="Middlename" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Mobile" ColumnName="Mobile" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Birthdate" ColumnName="Birthdate" />
+                <ScalarProperty Name="Religion" ColumnName="Religion" />
+                <ScalarProperty Name="Citizenship" ColumnName="Citizenship" />
+                <ScalarProperty Name="PurokID" ColumnName="PurokID" />
+                <ScalarProperty Name="Adress" ColumnName="Adress" />
+                <ScalarProperty Name="Profession" ColumnName="Profession" />
+                <ScalarProperty Name="Dialect" ColumnName="Dialect" />
+                <ScalarProperty Name="civil_status" ColumnName="civil_status" />
+                <ScalarProperty Name="status" ColumnName="status" />
+                <ScalarProperty Name="filename" ColumnName="filename" />
+                <ScalarProperty Name="Voter_id" ColumnName="Voter_id" />
+                <ScalarProperty Name="Precint_No" ColumnName="Precint_No" />
+                <ScalarProperty Name="e_attainment" ColumnName="e_attainment" />
+                <ScalarProperty Name="fullname" ColumnName="fullname" />
+                <ScalarProperty Name="dataStatus" ColumnName="dataStatus" />
+                <ScalarProperty Name="picture" ColumnName="picture" />
+                <ScalarProperty Name="typeofEmployer" ColumnName="typeofEmployer" />
+                <ScalarProperty Name="monthlyIncome" ColumnName="monthlyIncome" />
+                <ScalarProperty Name="otherIncome" ColumnName="otherIncome" />
+                <ScalarProperty Name="philhealth" ColumnName="philhealth" />
+                <ScalarProperty Name="personType" ColumnName="personType" />
+                <ScalarProperty Name="typeNo" ColumnName="typeNo" />
+                <ScalarProperty Name="typedateIssued" ColumnName="typedateIssued" />
+                <ScalarProperty Name="supportNeed" ColumnName="supportNeed" />
+                <ScalarProperty Name="typeofPension" ColumnName="typeofPension" />
+                <ScalarProperty Name="soloParentNo" ColumnName="soloParentNo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="services">
+            <EntityTypeMapping TypeName="plthsModel.service">
+              <MappingFragment StoreEntitySet="service">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="servicename" ColumnName="servicename" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
