@@ -1,0 +1,35 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33328.57
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plths", "plths.csproj", "{4BCEED66-8854-401E-B5CE-984C215C7145}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "plthsEntities", "plthsEntities\plthsEntities.csproj", "{9CAFE4D7-612B-4024-B589-B3E125136599}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "BMS", "..\BMS\BMS.vdproj", "{7AEE7505-1FF2-4FB8-AF67-65176817A2ED}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4BCEED66-8854-401E-B5CE-984C215C7145}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BCEED66-8854-401E-B5CE-984C215C7145}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BCEED66-8854-401E-B5CE-984C215C7145}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BCEED66-8854-401E-B5CE-984C215C7145}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9CAFE4D7-612B-4024-B589-B3E125136599}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9CAFE4D7-612B-4024-B589-B3E125136599}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9CAFE4D7-612B-4024-B589-B3E125136599}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9CAFE4D7-612B-4024-B589-B3E125136599}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7AEE7505-1FF2-4FB8-AF67-65176817A2ED}.Debug|Any CPU.ActiveCfg = Debug
+		{7AEE7505-1FF2-4FB8-AF67-65176817A2ED}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F6EC4272-AAFA-49AD-A67A-DDA42023C3D7}
+	EndGlobalSection
+EndGlobal

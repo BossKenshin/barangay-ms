@@ -1,0 +1,757 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{4BCEED66-8854-401E-B5CE-984C215C7145}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>plths</RootNamespace>
+    <AssemblyName>plths</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>plths.Program</StartupObject>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>BARANGAY %281%29.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AForge, Version=2.2.5.0, Culture=neutral, PublicKeyToken=c1db6ff4eaa06aeb, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.2.2.5\lib\AForge.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video, Version=2.2.5.0, Culture=neutral, PublicKeyToken=cbfb6e07d173c401, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.2.2.5\lib\AForge.Video.dll</HintPath>
+    </Reference>
+    <Reference Include="AForge.Video.DirectShow, Version=2.2.5.0, Culture=neutral, PublicKeyToken=61ea4348d43881b7, processorArchitecture=MSIL">
+      <HintPath>packages\AForge.Video.DirectShow.2.2.5\lib\AForge.Video.DirectShow.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.0.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI">
+      <HintPath>..\..\..\Documents\installer\guna dlls\Guna.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="Guna.UI2">
+      <HintPath>..\..\..\Documents\installer\guna dlls\Guna.UI2.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=16.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.160.1000.6\lib\net462\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Management" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AlldataSource.cs" />
+    <Compile Include="Blotter\AddBlotter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Blotter\AddBlotter.Designer.cs">
+      <DependentUpon>AddBlotter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blotter\frmUpdateBlotter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Blotter\frmUpdateBlotter.Designer.cs">
+      <DependentUpon>frmUpdateBlotter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Blotter\printBlotter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Blotter\printBlotter.Designer.cs">
+      <DependentUpon>printBlotter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Borrow\frmBorrow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borrow\frmBorrow.Designer.cs">
+      <DependentUpon>frmBorrow.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Borrow\frmBorrowerlist.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Borrow\frmBorrowerlist.Designer.cs">
+      <DependentUpon>frmBorrowerlist.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrgyOfficials\frmBrgyOfficials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrgyOfficials\frmBrgyOfficials.Designer.cs">
+      <DependentUpon>frmBrgyOfficials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BrgyOfficials\frmUpdateOfficial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BrgyOfficials\frmUpdateOfficial.Designer.cs">
+      <DependentUpon>frmUpdateOfficial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\frmBusinessPermit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\frmBusinessPermit.Designer.cs">
+      <DependentUpon>frmBusinessPermit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Cedula\frmCedula.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Cedula\frmCedula.Designer.cs">
+      <DependentUpon>frmCedula.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clearance\Clearance_Picture.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clearance\Clearance_Picture.Designer.cs">
+      <DependentUpon>Clearance_Picture.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHomeServices.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHomeServices.Designer.cs">
+      <DependentUpon>frmHomeServices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayment.Designer.cs">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Household\updatemember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Household\updatemember.Designer.cs">
+      <DependentUpon>updatemember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmAddItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\frmAddItem.Designer.cs">
+      <DependentUpon>frmAddItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Inventory\frmUpdateItem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Inventory\frmUpdateItem.Designer.cs">
+      <DependentUpon>frmUpdateItem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\blotterReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\blotterReports.Designer.cs">
+      <DependentUpon>blotterReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\blotterReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\blotterReports.Designer.cs">
+      <DependentUpon>blotterReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmBusinessPermitReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmBusinessPermitReport.Designer.cs">
+      <DependentUpon>frmBusinessPermitReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Business\updateBusinessPermit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Business\updateBusinessPermit.Designer.cs">
+      <DependentUpon>updateBusinessPermit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Clearance\frmAddClearance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Clearance\frmAddClearance.Designer.cs">
+      <DependentUpon>frmAddClearance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAttendance.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAttendance.Designer.cs">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBlotter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBlotter.Designer.cs">
+      <DependentUpon>frmBlotter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDocument.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDocument.Designer.cs">
+      <DependentUpon>frmDocument.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHome.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHome.Designer.cs">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmHousehold.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmHousehold.Designer.cs">
+      <DependentUpon>frmHousehold.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInventory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInventory.Designer.cs">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMissing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMissing.Designer.cs">
+      <DependentUpon>frmMissing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmOfficials.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmOfficials.Designer.cs">
+      <DependentUpon>frmOfficials.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPayroll.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPayroll.Designer.cs">
+      <DependentUpon>frmPayroll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmPurok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPurok.Designer.cs">
+      <DependentUpon>frmPurok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmResidents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmResidents.Designer.cs">
+      <DependentUpon>frmResidents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSalary.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalary.Designer.cs">
+      <DependentUpon>frmSalary.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSms.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSms.Designer.cs">
+      <DependentUpon>frmSms.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Household\addHouseholdLeader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Household\addHouseholdLeader.Designer.cs">
+      <DependentUpon>addHouseholdLeader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Household\addinhabitant.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Household\addinhabitant.Designer.cs">
+      <DependentUpon>addinhabitant.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Household\addMember.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Household\addMember.Designer.cs">
+      <DependentUpon>addMember.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmCedulaReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmCedulaReport.Designer.cs">
+      <DependentUpon>frmCedulaReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\frmClearanceReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\frmClearanceReport.Designer.cs">
+      <DependentUpon>frmClearanceReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\IndencyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\IndencyReport.Designer.cs">
+      <DependentUpon>IndencyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Indigency\frmAddIndigency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Indigency\frmAddIndigency.Designer.cs">
+      <DependentUpon>frmAddIndigency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Missing\AddMissing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Missing\AddMissing.Designer.cs">
+      <DependentUpon>AddMissing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="IssuedPlace\frmIssuedPlace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="IssuedPlace\frmIssuedPlace.Designer.cs">
+      <DependentUpon>frmIssuedPlace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Missing\UpdateMissing.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Missing\UpdateMissing.Designer.cs">
+      <DependentUpon>UpdateMissing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="plthsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>plthsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="plthsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>plthsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="purokDataset.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>purokDataset.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="purokDataset3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>purokDataset3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="purokDataset2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>purokDataset2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Purok\frmAddPurok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purok\frmAddPurok.Designer.cs">
+      <DependentUpon>frmAddPurok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Purok\frmUpdatePurok.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Purok\frmUpdatePurok.Designer.cs">
+      <DependentUpon>frmUpdatePurok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\residentReports.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\residentReports.Designer.cs">
+      <DependentUpon>residentReports.cs</DependentUpon>
+    </Compile>
+    <Compile Include="RequestList\requestListGrid.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="RequestList\requestListGrid.Designer.cs">
+      <DependentUpon>requestListGrid.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Request\frmRequest.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Request\frmRequest.Designer.cs">
+      <DependentUpon>frmRequest.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Reports\ResidencyReport.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Reports\ResidencyReport.Designer.cs">
+      <DependentUpon>ResidencyReport.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Residency\frmResidency.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Residency\frmResidency.Designer.cs">
+      <DependentUpon>frmResidency.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Residents\frmUpdateResidents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Residents\frmUpdateResidents.Designer.cs">
+      <DependentUpon>frmUpdateResidents.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TreaDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TreaDashboard.Designer.cs">
+      <DependentUpon>TreaDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ViewModel\brgyOfficial.cs" />
+    <Compile Include="ViewModel\InventoryViewModel.cs" />
+    <Compile Include="ViewModel\requestListViewModel.cs" />
+    <Compile Include="ViewModel\ViewModelBlotter.cs" />
+    <Compile Include="ViewModel\ViewModelBorrowers.cs" />
+    <Compile Include="ViewModel\ViewModelClearance.cs" />
+    <Compile Include="ViewModel\ViewModelHousehold.cs" />
+    <Compile Include="ViewModel\ViewModelindigency.cs" />
+    <Compile Include="ViewModel\ViewModelPurok.cs" />
+    <Compile Include="ViewModel\ViewModelResident.cs" />
+    <EmbeddedResource Include="Blotter.rdlc" />
+    <EmbeddedResource Include="Blotter\AddBlotter.resx">
+      <DependentUpon>AddBlotter.cs</DependentUpon>
+    </EmbeddedResource>
+    <Compile Include="Residents\frmAddResidents.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Residents\frmAddResidents.Designer.cs">
+      <DependentUpon>frmAddResidents.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Blotter\frmUpdateBlotter.resx">
+      <DependentUpon>frmUpdateBlotter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Borrow\frmBorrow.resx">
+      <DependentUpon>frmBorrow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Borrow\frmBorrowerlist.resx">
+      <DependentUpon>frmBorrowerlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrgyOfficials\frmBrgyOfficials.resx">
+      <DependentUpon>frmBrgyOfficials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BrgyOfficials\frmUpdateOfficial.resx">
+      <DependentUpon>frmUpdateOfficial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\business_permit.rdlc" />
+    <EmbeddedResource Include="Business\frmBusinessPermit.resx">
+      <DependentUpon>frmBusinessPermit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Cedula\cedula.rdlc" />
+    <EmbeddedResource Include="Cedula\frmCedula.resx">
+      <DependentUpon>frmCedula.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clearance\Clearance_Picture.resx">
+      <DependentUpon>Clearance_Picture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHomeServices.resx">
+      <DependentUpon>frmHomeServices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayment.resx">
+      <DependentUpon>frmPayment.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Household\updatemember.resx">
+      <DependentUpon>updatemember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmAddItem.resx">
+      <DependentUpon>frmAddItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Inventory\frmUpdateItem.resx">
+      <DependentUpon>frmUpdateItem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\blotterReports.resx">
+      <DependentUpon>blotterReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmBusinessPermitReport.resx">
+      <DependentUpon>frmBusinessPermitReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Business\updateBusinessPermit.resx">
+      <DependentUpon>updateBusinessPermit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Clearance\Clearance.rdlc" />
+    <EmbeddedResource Include="Clearance\frmAddClearance.resx">
+      <DependentUpon>frmAddClearance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAttendance.resx">
+      <DependentUpon>frmAttendance.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBlotter.resx">
+      <DependentUpon>frmBlotter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDocument.resx">
+      <DependentUpon>frmDocument.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHome.resx">
+      <DependentUpon>frmHome.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmHousehold.resx">
+      <DependentUpon>frmHousehold.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInventory.resx">
+      <DependentUpon>frmInventory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMissing.resx">
+      <DependentUpon>frmMissing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmOfficials.resx">
+      <DependentUpon>frmOfficials.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPayroll.resx">
+      <DependentUpon>frmPayroll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPurok.resx">
+      <DependentUpon>frmPurok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmResidents.resx">
+      <DependentUpon>frmResidents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalary.resx">
+      <DependentUpon>frmSalary.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSms.resx">
+      <DependentUpon>frmSms.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Household\addHouseholdLeader.resx">
+      <DependentUpon>addHouseholdLeader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Household\addinhabitant.resx">
+      <DependentUpon>addinhabitant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Household\addMember.resx">
+      <DependentUpon>addMember.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Indigency\frmAddIndigency.resx">
+      <DependentUpon>frmAddIndigency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="IssuedPlace\frmIssuedPlace.resx">
+      <DependentUpon>frmIssuedPlace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Missing\AddMissing.resx">
+      <DependentUpon>AddMissing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Missing\UpdateMissing.resx">
+      <DependentUpon>UpdateMissing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Purok\frmAddPurok.resx">
+      <DependentUpon>frmAddPurok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Purok\frmUpdatePurok.resx">
+      <DependentUpon>frmUpdatePurok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report1.rdlc" />
+    <EmbeddedResource Include="Reports\frmCedulaReport.resx">
+      <DependentUpon>frmCedulaReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\frmClearanceReport.resx">
+      <DependentUpon>frmClearanceReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\IndencyReport.resx">
+      <DependentUpon>IndencyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\residentReports.resx">
+      <DependentUpon>residentReports.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Request\frmRequest.resx">
+      <DependentUpon>frmRequest.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\ResidencyReport.resx">
+      <DependentUpon>ResidencyReport.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Residency\Residency.rdlc" />
+    <EmbeddedResource Include="Residency\frmResidency.resx">
+      <DependentUpon>frmResidency.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Residents\frmAddResidents.resx">
+      <DependentUpon>frmAddResidents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Residents\frmUpdateResidents.resx">
+      <DependentUpon>frmUpdateResidents.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RequestList\requestListGrid.resx">
+      <DependentUpon>requestListGrid.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Residents\residentReport1.rdlc" />
+    <EmbeddedResource Include="TreaDashboard.resx">
+      <DependentUpon>TreaDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="plthsDataSet.xsc">
+      <DependentUpon>plthsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="plthsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>plthsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="plthsDataSet.xss">
+      <DependentUpon>plthsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="plthsDataSet1.xsc">
+      <DependentUpon>plthsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="plthsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>plthsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="plthsDataSet1.xss">
+      <DependentUpon>plthsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\DataSources\plths.Purok.frmAddPurok.datasource" />
+    <None Include="Properties\DataSources\plths.Residents.frmAddResidents.datasource" />
+    <None Include="Properties\DataSources\plths.Residents.frmUpdateResidents.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.InventoryViewModel.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.requestListViewModel.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelBlotter.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelBorrowers.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelClearance.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelHousehold.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelindigency.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelMissing.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelPurok.datasource" />
+    <None Include="Properties\DataSources\plths.ViewModel.ViewModelResident.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Class1.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.business_permit.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.Clearance.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.frmBlotterReport.datasource" />
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.HouseholdMember.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.Indigency.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.Issued_place.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.Missing.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.official.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.plthsEntities.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.Purok.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.Entities.Resident.datasource" />
+    <None Include="Properties\DataSources\plthsEntities.ViewModel.ViewModelResident.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="purokDataset.xsc">
+      <DependentUpon>purokDataset.xsd</DependentUpon>
+    </None>
+    <None Include="purokDataset.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>purokDataset.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="purokDataset.xss">
+      <DependentUpon>purokDataset.xsd</DependentUpon>
+    </None>
+    <None Include="purokDataset3.xsc">
+      <DependentUpon>purokDataset3.xsd</DependentUpon>
+    </None>
+    <None Include="purokDataset3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>purokDataset3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="purokDataset3.xss">
+      <DependentUpon>purokDataset3.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="plthsEntities\plthsEntities.csproj">
+      <Project>{9cafe4d7-612b-4024-b589-b3e125136599}</Project>
+      <Name>plthsEntities</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="BARANGAY %281%29.ico" />
+    <Content Include="Images\BARANGAY %281%29.ico" />
+    <Content Include="Images\BARANGAY.ico" />
+    <Content Include="management.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+</Project>
